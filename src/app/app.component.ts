@@ -13,7 +13,7 @@ export class AppComponent {
     }
 
     ngOnInit(){
-        this.userType=localStorage.getItem("userRole")
+        this.userType=localStorage.getItem("userRole");
       }
 
     logout() {
