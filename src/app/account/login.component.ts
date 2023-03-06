@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService, AlertService } from '@app/_services';
+import { AppComponent } from '@app/app.component';
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private appComponent:AppComponent
     ) { }
 
     ngOnInit() {
@@ -42,8 +44,9 @@ export class LoginComponent implements OnInit {
             .subscribe({
                 next: (data:any) => {
                     if(data!=null && data.isSuccess){
+                        this.appComponent.userType=localStorage.getItem("userRole");
                         const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/users';
-                    this.router.navigateByUrl(returnUrl);
+                        this.router.navigateByUrl(returnUrl);
                     }
                     else{
                         this.alertService.error(data.message);
