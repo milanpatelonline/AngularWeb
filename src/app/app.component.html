@@ -1,0 +1,27 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+    <div class="navbar-nav" style="width: 100%;">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <a class="nav-item nav-link" *ngIf="userType==='Admin'" routerLink="/usertype" routerLinkActive="active">User Type</a>
+        <button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
+    </div>
+    <div class="navbar-nav" style="width: 15%;">
+        <!-- <span class="nav-link">milan-patel</span> -->
+        <span class="nav-link">Loged User : {{userType}}</span>
+    </div>
+</nav>
+
+
+
+<!-- main app container -->
+<div class="app-container" [ngClass]="{ 'bg-light': user }">
+    <alert></alert>
+    <router-outlet></router-outlet>
+</div>
+
+<!-- <div class="text-center mt-4">
+    <p>
+        <a href="https://www.linkedin.com/in/milan-patel-58126569/" target="_top">Milan Patel Linkedin</a>
+    </p>
+</div> -->

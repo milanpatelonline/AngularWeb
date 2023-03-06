@@ -1,0 +1,50 @@
+<h1>{{title}}</h1>
+<form *ngIf="!loading">
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Name</label>
+            <input disabled type="text" value="{{userdetail.name}}" class="form-control"  />
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">Address</label>
+            <input disabled type="text" value="{{userdetail.address}}" class="form-control"  />
+         </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Phone</label>
+            <input disabled type="text" value="{{userdetail.phone}}" class="form-control"  />
+            
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">Designation</label>
+            <input disabled type="text" value="{{userdetail.designation}}" class="form-control"  />            
+        </div>
+    </div>
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Email Address</label>
+            <input disabled type="text" value="{{userdetail.emailAddress}}" class="form-control"  />            
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">User Role</label>
+            <input disabled type="text" value="{{userdetail.userRole}}" class="form-control"  />            
+        </div>
+    </div>
+    <div  class="row">
+        <div class="mb-3 col">
+            <label class="form-label">User Name</label>
+            <input disabled type="text" value="{{userdetail.userName}}" class="form-control"  />            
+        </div> 
+        <div class="mb-3 col">
+            <label class="form-label">Is Active</label>
+            <input disabled type="text" value="{{userdetail.isActive}}" class="form-control"  />            
+        </div>         
+    </div>
+    <div class="mb-3">
+        <a routerLink="/users" class="btn btn-sm btn-primary me-1">Back</a>
+    </div>
+</form>
+<div *ngIf="loading" class="text-center m-5">
+    <span class="spinner-border spinner-border-lg align-center"></span>
+</div>

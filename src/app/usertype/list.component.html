@@ -1,0 +1,30 @@
+<h1>User Type</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add User Type</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 30%">Role Name</th>
+            <th style="width: 30%">CreatedOn</th>
+            <th style="width: 30%">UpdatedOn</th>
+            <th style="width: 30%"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usertype of usertypes">
+            <td>{{usertype.roleName}}</td>
+            <td>{{usertype.createdOn}}</td>
+            <td>{{usertype.updatedOn}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{usertype.roleId}}" class="btn btn-sm btn-primary me-1">Edit</a>
+                <button (click)="deleteUsertype(usertype.roleId)" class="btn btn-sm me-1">
+                    <span class="Active"class="btn btn-sm btn-danger" >Delete</span>                    
+                </button>                
+            </td>
+        </tr>
+        <tr *ngIf="!usertypes">
+            <td colspan="4" class="text-center">
+                <span class="spinner-border spinner-border-lg align-center"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
